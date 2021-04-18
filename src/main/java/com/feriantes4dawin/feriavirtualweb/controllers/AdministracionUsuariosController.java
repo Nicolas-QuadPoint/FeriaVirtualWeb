@@ -3,6 +3,9 @@ package com.feriantes4dawin.feriavirtualweb.controllers;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.feriantes4dawin.feriavirtualweb.conf.FeriaVirtualWebConfig;
+import com.feriantes4dawin.feriavirtualweb.models.Usuario;
+import com.feriantes4dawin.feriavirtualweb.models.Usuarios;
 import com.feriantes4dawin.feriavirtualweb.to.UsuarioTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,37 +16,45 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping(value = "/administracionUsuarios")
 public class AdministracionUsuariosController {
 	
-	/*
 	@Autowired
-	private UsuarioDao usuarioDao;
-	*/
+	private WebClient.Builder clienteWeb;
+	
 	
     @GetMapping()
-    public String administracionUsuarios(Model model){
-    	//TODO:Ofrecer datos y crear modelos para API
-        return "/administracionUsuarios";
+    public String administracionUsuarios(ModelAndView view){
+    			
+		Usuarios u = clienteWeb.build().
+			get().
+			uri(FeriaVirtualWebConfig.URL_BASE_API+"/usuarios").
+			retrieve().bodyToMono(Usuarios.class).
+			block();
+
+		view.addObject("listaUsuarios", u);
+
+        return "/index";
     }
     
     @GetMapping("/{idUsuario}")
     public String buscarUsuarioIdUsuarios(Model model, @PathVariable int idUsuario){
     	//TODO: Recuperar un usuario por API
-    	return "/administracionUsuarios";
+    	return "/index";
     }
     
     @PostMapping()
-    public String crearUsuario(Model model ,
-    		@ModelAttribute(value = "usuarioCrear") UsuarioTO usuarioCrear){
+    public String crearUsuario(ModelAndView view){
 		
 		//TODO: Crear usuarios por API
-    	return "/administracionUsuarios";
+    	return "/index";
     }
     
-    private void cargaUsuarios(Model model ) {
+    private void cargaUsuarios(ModelAndView view) {
     	
 		//TODO: Listar usuarios por API
         
