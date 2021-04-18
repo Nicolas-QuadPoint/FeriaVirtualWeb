@@ -1,0 +1,91 @@
+// Bootstrap
+// ---------------------------------------------------
+@import "~bootstrap/scss/functions";
+
+// Custom Theme Color START
+$lightgrape: #706d91;
+$grape: #615d83;
+$darkgrape: #3e425b;
+$granade: #ab5f63;
+$casiwhite: #f1f1f1;
+
+
+$theme-colors: map-merge(
+  (
+    "lightgrape" : $lightgrape,
+    "grape" : $grape,
+    "darkgrape" : $darkgrape,
+    "granade" : $granade,
+    "casiwhite" : $casiwhite,
+  ),
+  $theme-colors
+);
+// Custom Theme Color END
+
+
+@import "~bootstrap/scss/bootstrap";
+
+// Custom Style START
+
+// Background colors (theme colors)
+@each $name, $color in $theme-colors {
+  @include background-variant($name, $color);
+}
+
+// Background colors (colors)
+@each $name, $color in $colors {
+  @include background-variant($name, $color);
+}
+
+// Gradient Background colors (theme colors)
+@each $name, $color in $theme-colors {
+  @include background-gradient-variant($name, $color);
+}
+
+// Gradient Background colors (colors)
+@each $name, $color in $colors {
+  @include background-gradient-variant($name, $color);
+}
+
+// Accent colors (theme colors)
+@each $name, $color in $theme-colors {
+  @include accent-variant($name, $color);
+}
+
+// Accent colors (colors)
+@each $name, $color in $colors {
+  @include accent-variant($name, $color);
+}
+
+// Accent button override fix
+[class*="accent-"] {
+  @each $name, $color in $theme-colors {
+    a.btn-#{$name} {
+      color: color-yiq($color);
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  @if $color == dark or $color == light {
+    .navbar-#{$color} {
+      background-color: $value;
+      @if $color == dark {
+        border-color: lighten($dark, 10%);
+      }
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  @if $color != dark and $color != light {
+    @include navbar-variant($color, $value);
+  }
+}
+
+@each $color, $value in $colors {
+  @include navbar-variant($color, $value);
+}
+
+
+// Custom Style END
