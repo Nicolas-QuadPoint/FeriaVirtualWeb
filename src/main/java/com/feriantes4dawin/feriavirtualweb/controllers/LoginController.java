@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class LoginController {
@@ -11,13 +12,13 @@ public class LoginController {
     @GetMapping("/login")
     public String toLogin(Model model){
         
-        return "/login";
+        return "/page-login";
     }
 
     @PostMapping("/login")
-    public String toHome(Model model){
+    public ModelAndView toHome (ModelAndView model){
         
-        return "/home";
+        return new ModelAndView("redirect:/page-home");
     }
 
 }

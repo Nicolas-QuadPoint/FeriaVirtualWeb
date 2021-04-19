@@ -35,7 +35,7 @@ public class AdministracionUsuariosController {
 
 		view.addObject("listaUsuarios", u);
 
-        return "/index";
+        return "/page-index";
     }
     
     @GetMapping("/{idUsuario}")
