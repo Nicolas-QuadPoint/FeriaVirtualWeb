@@ -13,6 +13,10 @@ public class FeriaVirtualWebApplication {
 	}
 
 	/**
+	 * NOTES: Arranca la app con .\mvnw spring-boot:run
+	 */
+
+	/**
 	 * Esta cosa lo que hace es crear un objeto WebClient para
 	 * poder realizar peticiones http a traves de los controllers.
 	 * Los controllers deben crear una variable autowired de tipo
