@@ -12,3 +12,6 @@ spring:
     cache: false
     servlet:
       content-type: text/html
+  jackson:
+    deserialization:
+      FAIL_ON_IGNORED_PROPERTIES: false

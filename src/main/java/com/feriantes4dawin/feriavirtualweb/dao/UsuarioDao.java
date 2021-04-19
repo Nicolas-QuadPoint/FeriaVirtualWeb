@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.feriantes4dawin.feriavirtualweb.conf.Conexion;
 import com.feriantes4dawin.feriavirtualweb.to.UsuarioTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +14,10 @@ import org.springframework.stereotype.Component;
 
 //import oracle.jdbc.OracleTypes;
 
-/*
-@Component
+
+//@Component
 public class UsuarioDao {
-	
+/*	
 	@Autowired
 	private Conexion conexion;
 	
