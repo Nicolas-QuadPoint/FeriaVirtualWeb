@@ -18,7 +18,7 @@ public class LoginController {
     @PostMapping("/login")
     public ModelAndView toHome (ModelAndView model){
         
-        return new ModelAndView("redirect:/page-home");
+        return new ModelAndView("redirect:/home");
     }
 
 }
