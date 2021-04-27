@@ -1,5 +1,10 @@
 package com.feriantes4dawin.feriavirtualweb;
 
+import com.feriantes4dawin.feriavirtualweb.network.FeriaVirtualWebAPIImpl;
+import com.feriantes4dawin.feriavirtualweb.network.FeriaVirtualWebAPIProvider;
+import com.feriantes4dawin.feriavirtualweb.repositories.UsuarioRepository;
+import com.feriantes4dawin.feriavirtualweb.repositories.impl.UsuarioRepositoryImpl;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -21,11 +26,23 @@ public class FeriaVirtualWebApplication {
 	 * poder realizar peticiones http a traves de los controllers.
 	 * Los controllers deben crear una variable autowired de tipo
 	 * WebClient para poder consumir la API
-	 * @return
+	 * @return Un objeto WebClient.Builder para realizar la petición.
 	 */
 	@Bean
 	public WebClient.Builder webClientBuilder() {
 		return WebClient.builder();
+	}
+
+
+	/**
+	 * Genera una interfaz para comunicarse de forma ordenada
+	 * con la WebAPI, solo para usuarios.
+	 * @return Un objeto UsuarioRepository que permite operaciones
+	 * CRUD
+	 */
+	@Bean
+	public UsuarioRepository createUsuarioRepository(){
+		return new UsuarioRepositoryImpl();
 	}
 
 }

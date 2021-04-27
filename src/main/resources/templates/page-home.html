@@ -9,6 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <title>Maipo Grande FeriaVirtualWeb</title>
+  <link rel="shortcut icon" type="image/svg" href="img/logo_maipo_grande.svg"/>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet"
@@ -22,6 +23,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="css/all.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="css/adminlte.css">
+
+  <noscript>
+    Lo sentimos, FeriaVirtualWeb utiliza javascript para funcionar correctamente. 
+    Por favor, habilite javascript antes de continuar.
+  </noscript>  
 </head>
 <body class="layout-top-nav" style="height: auto;">
 <div class="wrapper">
@@ -61,15 +67,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Hover for action</a>
                 <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
                   <li>
-                    <a tabindex="-1" href="#" class="dropdown-item">level 2</a>
+                    <a tabindex="-1" href="#" class="dropdown-item">Formularios</a>
                   </li>
 
                   <!-- Level three dropdown-->
                   <li class="dropdown-submenu">
                     <a id="dropdownSubMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">level 2</a>
                     <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow">
-                      <li><a href="#" class="dropdown-item">3rd level</a></li>
-                      <li><a href="#" class="dropdown-item">3rd level</a></li>
+                      <li><a onclick="cargarContenido('/usuarios/nuevo');" class="dropdown-item">Usuarios</a></li>
+                      <li><a href="#" class="dropdown-item">Productos</a></li>
+                      <li><a onclick="cargarContenido('/ventas');" class="dropdown-item">Ventas</a></li>
                     </ul>
                   </li>
                   <!-- End Level three -->
@@ -252,7 +259,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main content -->
     <div class="content">
-      <div id="contenedorPrincipal" class="container">
+      <div id="contenedorPrincipal" class="container" style="margin-top: 5% !important;">
         
         <!-- AQUI SE PONE CONTENIDO DINAMICO!!! -->
 

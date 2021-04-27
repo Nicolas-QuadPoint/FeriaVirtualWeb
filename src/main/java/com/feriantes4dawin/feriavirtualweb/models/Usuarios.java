@@ -1,7 +1,9 @@
 package com.feriantes4dawin.feriavirtualweb.models;
 
+import java.util.List;
+
 public class Usuarios {
 
-    public Usuario[] usuarios;
+    public List<Usuario> usuarios;
     
 }
