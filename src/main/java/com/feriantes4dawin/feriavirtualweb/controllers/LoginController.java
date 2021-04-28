@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class LoginController {
-
+    
     @GetMapping("/login")
     public String toLogin(Model model){
         
