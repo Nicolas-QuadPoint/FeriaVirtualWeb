@@ -2,9 +2,11 @@ package com.feriantes4dawin.feriavirtualweb;
 
 import com.feriantes4dawin.feriavirtualweb.repositories.NacionalidadRepository;
 import com.feriantes4dawin.feriavirtualweb.repositories.ParClaveValorRepository;
+import com.feriantes4dawin.feriavirtualweb.repositories.ProductoRepository;
 import com.feriantes4dawin.feriavirtualweb.repositories.UsuarioRepository;
 import com.feriantes4dawin.feriavirtualweb.repositories.impl.NacionalidadRepositoryImpl;
 import com.feriantes4dawin.feriavirtualweb.repositories.impl.ParClaveValorRepositoryImpl;
+import com.feriantes4dawin.feriavirtualweb.repositories.impl.ProductoRepositoryImpl;
 import com.feriantes4dawin.feriavirtualweb.repositories.impl.UsuarioRepositoryImpl;
 
 import org.springframework.boot.SpringApplication;
@@ -45,6 +47,11 @@ public class FeriaVirtualWebApplication {
 	@Bean
 	public UsuarioRepository createUsuarioRepository(){
 		return new UsuarioRepositoryImpl();
+	}
+
+	@Bean
+	public ProductoRepository createProductoRepository(){
+		return new ProductoRepositoryImpl();
 	}
 
 	@Bean

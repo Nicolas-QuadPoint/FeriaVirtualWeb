@@ -18,30 +18,35 @@ function cargarContenido(nombreContenido,callbackOk=(res,status,xhr)=>{},callbac
             console.log("Error: " + xhr.status + ": " + xhr.statusText);
             callbackError(res,status,xhr);
         }
-            
+
     });
 }
 
-function haciaFragmentoUsuarios(res,status,xhr){
-    
-    /*
-    $('#contenedorPrincipal').load(nombreContenido, function(res, status, xhr){
-            if(status == "success"){
-                console.log("External content loaded successfully!");
-                callbackOk(res,status,xhr);
-            }
-            if(status == "error"){
-                console.log("Error: " + xhr.status + ": " + xhr.statusText);
-                callbackError(res,status,xhr);
-            }
-        }
-    );*/
+function cargarDataTableSeccion(nombreCarta,nombreDataTable,nombreControlEvento){
 
-    $("#usuarios-card").on('overlay.removed.lte.cardrefresh', function(hola){
-        console.log('Paso por loaded!!');
-        $("#dtusuarios").DataTable();
+    $(nombreCarta).on('overlay.removed.lte.cardrefresh', function(hola){
+        console.log('Carta actualizada: ' + nombreCarta);
+        var t = $(nombreDataTable).DataTable({
+            "responsive": true, 
+            "lengthChange": false, 
+            "autoWidth": false,
+            "buttons":['pdf','excel','csv','print']
+        });
+        t.buttons().container()
+        .appendTo( $('#dt-contenedor .col-sm-6:eq(0)') );
     });
 
-    $('#usuarios-card-btn-refresh').trigger('click');
+    //Esto lo hago para que pueda
+    $(nombreControlEvento).trigger('click');
 
+
+}
+
+function haciaFragmentoUsuarios(res,status,xhr){
+    cargarDataTableSeccion('#usuarios-card','#dtusuarios','#usuarios-card-btn-refresh');
+    $('#fnu_cmbNacionalidad').select2({width: 'resolve' });
+}
+
+function haciaFragmentoProductos(res,status,xhr){
+    cargarDataTableSeccion('#productos-card','#dtproductos','#productos-card-btn-refresh');
 }

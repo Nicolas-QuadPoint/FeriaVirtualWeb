@@ -26,9 +26,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Theme style -->
   <link rel="stylesheet" href="css/adminlte.css">
 
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+
   <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+
 
   <noscript>
     Lo sentimos, FeriaVirtualWeb utiliza javascript para funcionar correctamente.
@@ -36,7 +40,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </noscript>
 </head>
 
-<body class="layout-top-nav" style="height: auto;">
+<body class="layout-top-nav layout-navbar-fixed" style="height: auto;">
   <div class="wrapper">
 
     <!-- Navbar -->
@@ -68,6 +72,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                 <li><a onclick="cargarContenido('/usuarios',haciaFragmentoUsuarios);" class="dropdown-item">Usuarios</a>
                 </li>
+                <li><a onclick="cargarContenido('/productos',haciaFragmentoProductos);" class="dropdown-item">Productos</a></li>
                 <li><a onclick="cargarContenido('/ventas');" class="dropdown-item">Ventas</a></li>
                 <li><a onclick="cargarContenido('/inventario');" class="dropdown-item">Inventario</a></li>
 
@@ -254,7 +259,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper"
-      style="min-height: 274.4px;background: url('img/fondo-campo-oscuro.png') no-repeat; background-size: cover;">
+      style="min-height: 274.4px;background: url('img/fondo-campo-oscuro.png') repeat;">
       <!-- Content Header (Page header) -->
       <div class="content-header bg-casiwhite">
         <div class="container">
@@ -276,7 +281,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       <!-- Main content -->
       <div class="content">
-        <div id="contenedorPrincipal" class="container" style="margin-top: 5% !important;">
+        <div id="contenedorPrincipal" class="container" style="margin-top: 5% !important; margin-bottom: 5% !important;">
 
           <!-- AQUI SE PONE CONTENIDO DINAMICO!!! -->
 
